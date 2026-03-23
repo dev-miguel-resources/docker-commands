@@ -32,7 +32,6 @@ docker create mysql:8.4.8
 ```
 docker rm sad_lalande (nombre)
 docker rm 3f8233ea81d0d3006cb8a7587dd751c1f9166cc30a71d163339c7668142a23f7 (ID)
-pendiente otro comando para eliminar
 ```
 
 ### 5. Crear un contenedor con nombre
@@ -105,3 +104,82 @@ Esto genera que recursos que la imagen ocupe puedan haber sido corrompidos
 docker inspect mysqlserver (nombre)
 docker inspect 20f55b292d655fce6b8b19ab3571be6a3b2dd7fafd57a3782c39e10ccaa7133e (ID)
 ```
+
+### 15. Para ingresar a la red virtual de Docker desde windows
+
+```
+Anotar \\wsl$ en la barra de direcciones desde cualquier directorio
+```
+
+### 16. Para inspectar una imagen
+
+```
+docker image inspect mysql:8.4.8 (nombre)
+docker image inspect 20f55b292d655fce6b8b19ab3571be6a3b2dd7fafd57a3782c39e10ccaa7133e (ID image)
+```
+
+### 16. Para crear un contenedor con un volumen anónimo
+
+```
+docker run -d --name mysqlserver -v /var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 -e MYSQL_DATABASE=sqldb mysql:8.4.8
+```
+
+### 17. Para eliminar un contenedor que está en ejecución
+
+```
+docker rm -f mysqlserver (nombre) or ID
+docker stop mysqlserver (nombre) or ID
+docker rm mysqlserver (nombre) or ID
+```
+
+### 18. Para remover volúmenes huerfanos
+
+```
+docker volume prune
+```
+
+### 19. Para listar volúmenes
+
+```
+docker volume ls
+```
+
+### 20. Para filtar volúmenes
+
+```
+docker volume ls | grep my (nombre) (linux/mac)
+docker volume ls | findStr my (nombre) (windows)
+```
+
+### 21. Para eliminar un contenedor con un volumen anónimo u otro
+
+```
+docker rm -fv mysqlserver (nombre) or ID
+```
+
+### 22. Para crear un contenedor con un volumen host
+
+```
+docker run -d --name mysqlserver -v E:\docker_examples\docker\volumes\mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 -e MYSQL_DATABASE=sqldb mysql:8.4.8
+```
+
+### 23. Para eliminar el contenido de una carpeta de volumen host
+
+```
+rmdir /s /q E:\docker_examples\docker\volumes\mysql (windows)
+rm -rf E:\docker_examples\docker\volumes\mysql (linux/mac)
+```
+
+
+### 24. Para crear un contenedor con un volumen nombrado 
+
+```
+docker run -d --name mysqlserver -v vol-mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 -e MYSQL_DATABASE=sqldb mysql:8.4.8
+```
+
+### 25. Para identificar un contenedor con un volúmen TMPFS
+```
+docker run -d --name mysqlservertest -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 -e MYSQL_DATABASE=sqldb mysql:8.4.8
+Es una marca de volumen vacío para denotar que se puede manejar persistencia
+```
+
