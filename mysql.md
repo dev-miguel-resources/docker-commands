@@ -183,3 +183,63 @@ docker run -d --name mysqlservertest -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=u
 Es una marca de volumen vacío para denotar que se puede manejar persistencia
 ```
 
+### 26. Para crear un contenedor con asignación de puertos
+```
+docker run -d --name mysqlserver -p 3308:3306 -v vol-mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 -e MYSQL_DATABASE=sqldb mysql:8.4.8
+```
+
+### 27. Para crear una red de Docker
+```
+docker network create net-test-1 [OPTION TYPE] (nombre)
+```
+
+### 28. Para listar redes
+```
+docker network ls
+```
+
+### 29. Para filtrar redes de una lista
+```
+docker network ls | grep test-1 (linux/mac)
+docker network ls | findStr test-1 (windows)
+```
+
+### 30. Para eliminar una red
+```
+docker network rm net-test-1 (nombre)
+docker network ca471a49efaf (ID)
+```
+
+### 31. Para conectar un contenedor a una determinada red
+```
+docker network connect net-test-1 mysqlserver2
+```
+
+### 32. Para inspeccionar una determinada red
+```
+docker network inspect net-test-1 (nombre)
+```
+
+### 33. Para inspeccionar una determinada red
+```
+docker network disconnect net-test-1 mysqlserver2
+```
+
+### 34. Para crear un contenedor con una red previamente creada de tipo bridge nombrada
+```
+docker run -d --name mysqlserver2 -p 3309:3306 -v test-vol-2:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_USER=user -e MYSQL_PASSWORD=123 --network net-test-2 -e MYSQL_DATABASE=sqldb2 mysql
+```
+
+### 35. Definición de una red host
+```
+docker network create net-test-3 -d host
+Esta red no está permitida para su uso
+```
+
+### 36. Definición de una red none
+```
+docker network create net-test-3 -d none
+Esta red no está permitida para su uso. Es solo una definición
+para describir redes sin contenedores.
+```
+
