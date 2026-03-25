@@ -1,0 +1,31 @@
+# Parte 1: Esta es la versión actual (3.8) y actualmente pasó a ser opcional
+# 1.x => legacy, 2.x => volúmenes y redes, 3.x => todas las características
+# 3.8 versión estándar recomendada.
+version: "3.8"
+
+services:
+  mysql-service:
+    image: mysql:8
+    container_name: mysqlserver
+
+  mongo-service:
+    container_name: mymongoserver
+    depends_on:
+      - mysql-service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

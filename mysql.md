@@ -191,6 +191,7 @@ docker run -d --name mysqlserver -p 3308:3306 -v vol-mysql:/var/lib/mysql -e MYS
 ### 27. Para crear una red de Docker
 ```
 docker network create net-test-1 [OPTION TYPE] (nombre)
+docker network create net-test-1 -d bridge
 ```
 
 ### 28. Para listar redes
@@ -241,5 +242,11 @@ Esta red no está permitida para su uso
 docker network create net-test-3 -d none
 Esta red no está permitida para su uso. Es solo una definición
 para describir redes sin contenedores.
+```
+
+### 37. Para hacer uso del modo attached (interactivo)
+```
+docker exec -it mysqlserver2 bash or sh (Esto depende de que terminal posea la imagen)
+docker exec -it mysqlserver2 mysql -u root -p1234 (accedo directamente a la terminal de la imagen con sus credenciales)
 ```
 
