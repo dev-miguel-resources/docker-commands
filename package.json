@@ -1,0 +1,9 @@
+{
+  "name": "backend-app",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  }
+}
