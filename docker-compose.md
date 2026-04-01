@@ -86,8 +86,14 @@ docker compose config (si tiene nombre nativo: compose ó docker-compose)
 docker compose -f docker-compose.env.yml config (nombre personalizado)
 ```
 
-### 13. Pendiente creación de imágenes personalizadas
+### 14. Para lanzar un archivo compose con una configuración específica de entorno diferente al .env
 
 ```
-Módulo 5 en adelante
+docker compose --env-file .env.dev -f docker-compose.health.yml up -d
+```
+
+### 15. Pendiente creación de imágenes personalizadas
+
+```
+Módulo 5 y 6 en adelante
 ```
