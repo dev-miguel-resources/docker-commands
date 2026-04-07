@@ -3,7 +3,7 @@
 ### 1. Para ejecutar un docker-compose.yml
 
 ```
-docker-compose up -d
+docker-compose up -d (solo si sufre cambios el archivo compose)
 docker compose up -d
 ```
 
@@ -98,8 +98,32 @@ docker compose --env-file .env.dev -f docker-compose.health.yml up -d
 docker compose down -v
 ```
 
-### 15. Para crear mi imagen personalizada sin nombre
+### 15. Para crear una imagen personalizada sin nombre
 
 ```
 docker build .
+```
+
+### 16. Para crear una imagen personalizada con nombre
+
+```
+docker build -t spring-app:1.0 .
+```
+
+### 17. Para crear una imagen renovada desde cero sin reutilizar la cache
+
+```
+docker compose build --no-cache
+```
+
+### 17. Para crear una imagen renovada desde cero sin reutilizar la cache
+
+```
+docker compose build --no-cache
+
+```
+### 18. Para lanzar el compose pero actualizando los cambios en la imagen (código)
+
+```
+docker compose up -d --build
 ```
