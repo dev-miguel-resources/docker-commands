@@ -92,8 +92,14 @@ docker compose -f docker-compose.env.yml config (nombre personalizado)
 docker compose --env-file .env.dev -f docker-compose.health.yml up -d
 ```
 
-### 15. Pendiente creación de imágenes personalizadas
+### 14. Permite bajar todos los servicios incluyendo sus volúmenes
 
 ```
-Módulo 5 y 6 en adelante
+docker compose down -v
+```
+
+### 15. Para crear mi imagen personalizada sin nombre
+
+```
+docker build .
 ```
